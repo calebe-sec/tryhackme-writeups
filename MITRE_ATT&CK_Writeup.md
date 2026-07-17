@@ -11,172 +11,172 @@
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Task 1 — Introdução ao MITRE ATT&CK](#task-1--introdução-ao-mitre-attck)
-3. [Task 3 — Investigando um Grupo APT](#task-3--investigando-um-grupo-apt)
-4. [Task 4 — Encontrando Grupos por Setor](#task-4--encontrando-grupos-por-setor)
+2. [Task 1 — Introduction to MITRE ATT&CK](#task-1--introduction-to-mitre-attck)
+3. [Task 3 — Investigating an APT Group](#task-3--investigating-an-apt-group)
+4. [Task 4 — Finding Groups by Sector](#task-4--finding-groups-by-sector)
 5. [Task 5 — MITRE CAR](#task-5--mitre-car)
 6. [Task 6 — MITRE D3FEND](#task-6--mitre-d3fend)
-7. [Task 7 — Outros Projetos MITRE](#task-7--outros-projetos-mitre)
+7. [Task 7 — Other MITRE Projects](#task-7--other-mitre-projects)
 8. [Key Takeaways](#key-takeaways)
 
 ---
 
 ## Overview
 
-Este write-up documenta a exploração do ecossistema de frameworks mantidos pela MITRE, com foco no ATT&CK Matrix, no ATT&CK Navigator, no Cyber Analytics Repository (CAR), no D3FEND e em projetos complementares como AADAPT e ATLAS.
+This write-up documents the exploration of the ecosystem of frameworks maintained by MITRE, focusing on the ATT&CK Matrix, ATT&CK Navigator, Cyber Analytics Repository (CAR), D3FEND, and complementary projects such as AADAPT and ATLAS.
 
-O objetivo da sala é desenvolver a capacidade de navegar por esses frameworks para mapear táticas, técnicas, sub-técnicas, grupos de ameaça (APTs), softwares associados, mitigações e estratégias de detecção — habilidades centrais para funções de SOC, Threat Intelligence e Detection Engineering.
+The room's objective is to develop the ability to navigate these frameworks to map tactics, techniques, sub-techniques, threat groups (APTs), associated software, mitigations, and detection strategies — core skills for SOC, Threat Intelligence, and Detection Engineering roles.
 
 ---
 
-## Task 1 — Introdução ao MITRE ATT&CK
+## Task 1 — Introduction to MITRE ATT&CK
 
-### Objetivo
+### Objective
 
-Entender como o framework ATT&CK é organizado e como localizar táticas, técnicas e sub-técnicas.
+Understand how the ATT&CK framework is organized and how to locate tactics, techniques, and sub-techniques.
 
-### Conceitos
+### Concepts
 
-O ATT&CK organiza o comportamento dos atacantes em três níveis hierárquicos:
+ATT&CK organizes adversary behavior into three hierarchical levels:
 
-| Nível | Definição |
+| Level | Definition |
 |---|---|
-| **Tactic** | O objetivo do atacante ("por quê?") |
-| **Technique** | Como esse objetivo é alcançado |
-| **Sub-technique** | Uma forma específica de executar a técnica |
+| **Tactic** | The adversary's goal ("why?") |
+| **Technique** | How that goal is achieved |
+| **Sub-technique** | A specific way to perform the technique |
 
-As táticas aparecem na parte superior da matriz, enquanto as técnicas ficam listadas abaixo de cada uma delas.
+Tactics appear at the top of the matrix, while techniques are listed below each of them.
 
-### Questão 1 — Tactic da técnica Hide Artifacts
+### Question 1 — Tactic of the Hide Artifacts technique
 
-**Como encontrei:**
-1. Acessei a matriz do ATT&CK.
-2. Pesquisei pela técnica *Hide Artifacts*.
-3. Abri a página da técnica.
-4. No topo da página, no campo **Tactic**, a informação estava disponível.
+**How I Found It:**
+1. I accessed the ATT&CK matrix.
+2. I searched for the *Hide Artifacts* technique.
+3. I opened the technique's page.
+4. At the top of the page, in the **Tactic** field, the information was available.
 
-**Resposta:**
+**Answer:**
 ```
 Defense Evasion
 ```
 
-### Questão 2 — ID da técnica Create Account
+### Question 2 — ID of the Create Account technique
 
-**Como encontrei:**
-1. Pesquisei por *Create Account* no ATT&CK.
-2. Abri a página da técnica.
-3. Logo abaixo do nome, o identificador da técnica é exibido.
+**How I Found It:**
+1. I searched for *Create Account* in ATT&CK.
+2. I opened the technique's page.
+3. Just below the name, the technique identifier is displayed.
 
-**Resposta:**
+**Answer:**
 ```
 T1136
 ```
 
 ---
 
-## Task 3 — Investigando um Grupo APT
+## Task 3 — Investigating an APT Group
 
-### Objetivo
+### Objective
 
-Aprender como investigar um grupo de ameaça (APT) utilizando o ATT&CK Navigator.
+Learn how to investigate a threat group (APT) using the ATT&CK Navigator.
 
-### Questão 1 — País de origem do Mustang Panda
+### Question 1 — Mustang Panda's country of origin
 
-**Como encontrei:**
-1. Acessei a página do grupo **Mustang Panda (G0129)**.
-2. A descrição inicial do grupo informa sua origem.
+**How I Found It:**
+1. I accessed the page for the **Mustang Panda (G0129)** group.
+2. The initial description of the group states its origin.
 
-**Resposta:**
+**Answer:**
 ```
 China
 ```
 
-### Questão 2 — Técnica de Reconnaissance do Mustang Panda
+### Question 2 — Mustang Panda's Reconnaissance technique
 
-**Como encontrei:**
-1. Entrei na página do grupo Mustang Panda.
-2. Abri a matriz (Navigator Layer).
-3. Localizei a coluna **Reconnaissance**.
-4. Observei quais técnicas estavam destacadas e cliquei na correspondente.
+**How I Found It:**
+1. I went to the Mustang Panda group page.
+2. I opened the matrix (Navigator Layer).
+3. I located the **Reconnaissance** column.
+4. I observed which techniques were highlighted and clicked the corresponding one.
 
-**Resposta:**
+**Answer:**
 ```
 T1598
 ```
 
-### Questão 3 — Software usado para Access Token Manipulation
+### Question 3 — Software used for Access Token Manipulation
 
-**Como encontrei:**
-1. Na página do Mustang Panda, procurei a técnica **Access Token Manipulation**.
-2. Na seção **Procedure Examples**, o MITRE lista os softwares utilizados pelo grupo.
+**How I Found It:**
+1. On the Mustang Panda page, I searched for the **Access Token Manipulation** technique.
+2. In the **Procedure Examples** section, MITRE lists the software used by the group.
 
-**Resposta:**
+**Answer:**
 ```
 Cobalt Strike
 ```
 
 ---
 
-## Task 4 — Encontrando Grupos por Setor
+## Task 4 — Finding Groups by Sector
 
-### Objetivo
+### Objective
 
-Aprender a pesquisar grupos APT utilizando os filtros disponíveis no ATT&CK.
+Learn how to search for APT groups using the filters available in ATT&CK.
 
-### Questão 1 — Grupo ativo desde 2013 que ataca o setor de aviação
+### Question 1 — Group active since 2013 targeting the aviation sector
 
-**Como encontrei:**
-1. Acessei a página **Groups**.
-2. Procurei por grupos relacionados ao setor **Aviation**.
-3. Verifiquei a descrição de cada grupo até encontrar a correspondência.
+**How I Found It:**
+1. I accessed the **Groups** page.
+2. I searched for groups related to the **Aviation** sector.
+3. I checked the description of each group until I found a match.
 
-**Resposta:**
+**Answer:**
 ```
 APT33
 ```
 
-### Questão 2 — Sub-técnica de preocupação para ambientes Office 365
+### Question 2 — Sub-technique of concern for Office 365 environments
 
-**Como encontrei:**
-1. Abri a página do APT33.
-2. Analisei sua matriz de técnicas.
-3. Procurei técnicas relacionadas ao Microsoft 365.
+**How I Found It:**
+1. I opened the APT33 page.
+2. I analyzed its technique matrix.
+3. I searched for techniques related to Microsoft 365.
 
-**Resposta:**
+**Answer:**
 ```
 Cloud Accounts
 ```
 
-### Questão 3 — Ferramenta associada ao grupo e à sub-técnica
+### Question 3 — Tool associated with the group and the sub-technique
 
-**Como encontrei:**
-1. Cliquei na sub-técnica **Cloud Accounts**.
-2. Fui até **Procedure Examples**.
-3. Localizei o grupo **APT33** e observei o software utilizado.
+**How I Found It:**
+1. I clicked on the **Cloud Accounts** sub-technique.
+2. I went to **Procedure Examples**.
+3. I located the **APT33** group and noted the software used.
 
-**Resposta:**
+**Answer:**
 ```
 Ruler
 ```
 
-### Questão 4 — Mitigação para remoção de contas inativas
+### Question 4 — Mitigation for removing inactive accounts
 
-**Como encontrei:**
+**How I Found It:**
 
-Na página da técnica, seção **Mitigations**.
+On the technique page, in the **Mitigations** section.
 
-**Resposta:**
+**Answer:**
 ```
 User Account Management
 ```
 
-### Questão 5 — Detection Strategy ID
+### Question 5 — Detection Strategy ID
 
-**Como encontrei:**
+**How I Found It:**
 
-Na página da técnica, seção **Detections**.
+On the technique page, in the **Detections** section.
 
-**Resposta:**
+**Answer:**
 ```
 DET0546
 ```
@@ -185,29 +185,29 @@ DET0546
 
 ## Task 5 — MITRE CAR
 
-### Objetivo
+### Objective
 
-Conhecer o **Cyber Analytics Repository (CAR)**, repositório de analytics de detecção mantido pela MITRE.
+Get to know the **Cyber Analytics Repository (CAR)**, a detection analytics repository maintained by MITRE.
 
-### Questão 1 — Tactic associada ao CAR-2019-07-001
+### Question 1 — Tactic associated with CAR-2019-07-001
 
-**Como encontrei:**
-1. Abri o analytic **CAR-2019-07-001**.
-2. No topo da página consta a associação com o ATT&CK.
+**How I Found It:**
+1. I opened the **CAR-2019-07-001** analytic.
+2. At the top of the page, the association with ATT&CK is shown.
 
-**Resposta:**
+**Answer:**
 ```
 Defense Evasion
 ```
 
-### Questão 2 — Analytic Type de Access Permission Modification
+### Question 2 — Analytic Type of Access Permission Modification
 
-**Como encontrei:**
-1. Acessei a lista de Analytics.
-2. Pesquisei **Access Permission Modification**.
-3. Observei a coluna **Analytic Type**.
+**How I Found It:**
+1. I accessed the list of Analytics.
+2. I searched for **Access Permission Modification**.
+3. I observed the **Analytic Type** column.
 
-**Resposta:**
+**Answer:**
 ```
 Situational Awareness
 ```
@@ -216,54 +216,54 @@ Situational Awareness
 
 ## Task 6 — MITRE D3FEND
 
-### Objetivo
+### Objective
 
-Aprender como o D3FEND complementa o ATT&CK, apresentando técnicas defensivas contrapostas às técnicas ofensivas.
+Learn how D3FEND complements ATT&CK, presenting defensive techniques mapped against offensive ones.
 
-### Questão 1 — Sub-técnica de User Behavior Analysis
+### Question 1 — User Behavior Analysis sub-technique
 
-**Como encontrei:**
-1. Pesquisei **User Behavior Analysis**.
-2. Abri a técnica e analisei suas sub-técnicas.
+**How I Found It:**
+1. I searched for **User Behavior Analysis**.
+2. I opened the technique and analyzed its sub-techniques.
 
-**Resposta:**
+**Answer:**
 ```
 User Geolocation Logon Pattern Analysis
 ```
 
-### Questão 2 — Artefato digital analisado pela sub-técnica
+### Question 2 — Digital artifact analyzed by the sub-technique
 
-**Como encontrei:**
+**How I Found It:**
 
-Na mesma página, seção **Digital Artifact Relationships**.
+On the same page, in the **Digital Artifact Relationships** section.
 
-**Resposta:**
+**Answer:**
 ```
 Network Traffic
 ```
 
 ---
 
-## Task 7 — Outros Projetos MITRE
+## Task 7 — Other MITRE Projects
 
-### Questão 1 — Technique ID de Scrape Blockchain Data (AADAPT)
+### Question 1 — Technique ID of Scrape Blockchain Data (AADAPT)
 
-**Como encontrei:**
-1. Abri o framework **AADAPT** (voltado a ativos digitais/blockchain).
-2. Pesquisei por **Scrape Blockchain Data**.
+**How I Found It:**
+1. I opened the **AADAPT** framework (focused on digital assets/blockchain).
+2. I searched for **Scrape Blockchain Data**.
 
-**Resposta:**
+**Answer:**
 ```
 ADT3025
 ```
 
-### Questão 2 — Tactic de LLM Prompt Obfuscation (ATLAS)
+### Question 2 — Tactic of LLM Prompt Obfuscation (ATLAS)
 
-**Como encontrei:**
-1. Abri o framework **ATLAS** (ameaças a sistemas de IA).
-2. Pesquisei **LLM Prompt Obfuscation** e observei o campo **Tactic**.
+**How I Found It:**
+1. I opened the **ATLAS** framework (focused on AI system threats).
+2. I searched for **LLM Prompt Obfuscation** and observed the **Tactic** field.
 
-**Resposta:**
+**Answer:**
 ```
 Defense Evasion
 ```
@@ -272,16 +272,16 @@ Defense Evasion
 
 ## Key Takeaways
 
-| Framework | Foco | Uso principal |
+| Framework | Focus | Primary Use |
 |---|---|---|
-| **ATT&CK** | TTPs de adversários reais | Base comum de linguagem entre analistas |
-| **Navigator** | Visualização de grupos/técnicas | Análise de cobertura defensiva |
-| **CAR** | Analytics de detecção | Criação de regras para SIEM (ex.: Splunk) |
-| **D3FEND** | Técnicas defensivas | Mapeamento de contramedidas às TTPs do ATT&CK |
-| **AADAPT** | Ativos digitais / blockchain | Extensão de cobertura para ameaças financeiras digitais |
-| **ATLAS** | Sistemas de IA | Ameaças direcionadas a modelos e pipelines de ML |
+| **ATT&CK** | Real-world adversary TTPs | Common language base among analysts |
+| **Navigator** | Visualization of groups/techniques | Defensive coverage analysis |
+| **CAR** | Detection analytics | Creating rules for SIEM (e.g., Splunk) |
+| **D3FEND** | Defensive techniques | Mapping countermeasures to ATT&CK TTPs |
+| **AADAPT** | Digital assets / blockchain | Extending coverage to digital financial threats |
+| **ATLAS** | AI systems | Threats targeting ML models and pipelines |
 
-> **Nota:** Dominar o ecossistema MITRE é essencial para quem atua ou pretende atuar em SOC e Threat Intelligence — esses frameworks fornecem uma linguagem comum entre analistas, facilitam a criação de regras de detecção, apoiam a resposta a incidentes e permitem mapear ameaças reais de forma estruturada.
+> **Note:** Mastering the MITRE ecosystem is essential for those who work or intend to work in SOC and Threat Intelligence — these frameworks provide a common language among analysts, facilitate the creation of detection rules, support incident response, and allow mapping real-world threats in a structured way.
 
 ---
 
