@@ -2,7 +2,7 @@
 
 **Author:** [Calebe Araújo]
 **Platform:** TryHackMe
-**Room:** Phishing CTF
+**Room:** Snapped Phish-ing Line
 **Category:** Phishing Analysis / Email Forensics
 **Difficulty:** Easy
 
