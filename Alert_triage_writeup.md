@@ -34,24 +34,24 @@ Key concepts covered:
 
 ## Task 2 — From Events to Alerts
 
-### Objetivo
+### Objective
 
 Understand how raw events become alerts, and get familiar with the SOC dashboard used throughout the room.
 
-### Conceitos
+### Concept
 
 - An **event** is any recorded activity (login, process execution, file download, etc.).
 - Events are logged by the originating system (OS, firewall, cloud provider) and shipped to a security solution (SIEM, EDR, NDR, SOAR).
 - An **alert** is a notification generated when a specific event or sequence of events matches a detection rule — this is what lets analysts triage dozens of alerts a day instead of millions of raw logs.
 - L1 analysts are the first line of defense; L2 analysts handle deeper investigation and remediation; SOC engineers tune the alerting pipeline; the SOC manager tracks triage speed and quality.
 
-### Como encontrei
+### How i find it
 
 Opened the [SOC dashboard](https://static-labs.tryhackme.cloud/apps/socl1-alerttriage/) and reviewed the alert list to count total alerts and identify the most recent one by timestamp.
 
 ![SOC dashboard showing the current alert queue](images/screenshot-2026-07-20-110009.png)
 
-### Respostas
+### Answer
 
 **How many alerts are on the SOC dashboard?**
 ```
@@ -67,11 +67,11 @@ Double-Extension File Creation
 
 ## Task 3 — Reading Alert Properties
 
-### Objetivo
+### Objective
 
 Learn the main fields that make up an alert and use them to answer questions about a specific alert.
 
-### Conceitos
+### Concept
 
 Every alert generally exposes eight core properties:
 
@@ -86,13 +86,13 @@ Every alert generally exposes eight core properties:
 | 7 | Alert Description | Rule logic, why it may indicate an attack, and triage guidance |
 | 8 | Alert Fields | Analyst comments and the specific values that triggered the alert |
 
-### Como encontrei
+### How i find it
 
 Opened the **"Unusual VPN Login Location"** alert on the dashboard and checked its Verdict and Alert Fields sections.
 
 ![Details of the Unusual VPN Login Location alert](images/screenshot-2026-07-20-110225.png)
 
-### Respostas
+### Answer
 
 **What was the verdict for the "Unusual VPN Login Location" alert?**
 ```
@@ -108,11 +108,11 @@ M.Clark
 
 ## Task 4 — Alert Prioritisation
 
-### Objetivo
+### Objective
 
 Learn how to decide which alert to pick up first when several are waiting in the queue.
 
-### Conceitos
+### Concept
 
 The generic prioritisation approach used by most SOC teams:
 
@@ -120,13 +120,13 @@ The generic prioritisation approach used by most SOC teams:
 2. **Sort by severity** — Critical → High → Medium → Low, since higher-severity rules are tuned to reflect bigger real-world impact.
 3. **Sort by time** — oldest first, since an older breach likely has an attacker already progressing (e.g., exfiltrating data), while a newer one may still be in early discovery.
 
-### Como encontrei
+### How i find it
 
 Reviewed the queue, filtered out alerts already assigned/reviewed, and sorted the remaining ones by severity and then by age to pick the first-priority alert. Assigned it to myself and moved it to **In Progress**.
 
 ![Alert queue sorted by severity and age](images/screenshot-2026-07-20-100857.png)
 
-### Respostas
+### Answer
 
 **Should you prioritise medium over low severity alerts? (Yea/Nay)**
 ```
@@ -147,17 +147,17 @@ Potential Data Exfiltration
 
 ## Task 5 — Full Alert Triage Workflow
 
-### Objetivo
+### Objective
 
 Apply the complete triage workflow — initial actions, investigation, and final actions — to three alerts on the dashboard and reach a correct verdict for each.
 
-### Conceitos
+### Concepts
 
 - **Initial actions:** assign the alert to yourself, move it to In Progress, review name/description/key fields.
 - **Investigation:** identify who/what is affected, understand the action described, review surrounding events, and use threat intel or playbooks/workbooks when available.
 - **Final actions:** set the verdict (True Positive / False Positive), write a comment explaining the reasoning, and move the alert to Closed (or escalate, covered in the next room).
 
-### Como encontrei
+### how i find it
 
 Triaged the first-, second-, and third-priority alerts one by one, following the initial → investigation → final actions flow for each. Each correct verdict + comment combination released a flag on the dashboard.
 
@@ -165,7 +165,7 @@ Triaged the first-, second-, and third-priority alerts one by one, following the
 ![Investigating and closing the second-priority alert](images/screenshot-2026-07-20-111840.png)
 ![Investigating and closing the third-priority alert](images/screenshot-2026-07-20-112149.png)
 
-### Respostas
+### Answer
 
 **Flag after triaging the first-priority alert:**
 ```

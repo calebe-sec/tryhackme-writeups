@@ -35,11 +35,11 @@ Key concepts covered:
 
 ## Task 2 — Reporting, Escalation, and Communication
 
-### Objetivo
+### Objective
 
 Understand the path an alert takes after L1 triage, and learn the three new terms used to describe it.
 
-### Conceitos
+### Concept
 
 - **Alert reporting:** formally documenting the investigation and evidence behind a verdict, beyond a short comment — especially important for True Positives that need escalation.
 - **Alert escalation:** passing a True Positive alert that needs deeper investigation or remediation on to an L2 analyst, following the team's agreed procedure.
@@ -47,11 +47,11 @@ Understand the path an alert takes after L1 triage, and learn the three new term
 
 Most alerts are closed by L1 as False Positives or handled at L1 level; only the complex/threatening ones flow further — L1 handles the initial volume, L2 remediates most confirmed breaches, and only a small fraction ever needs full DFIR.
 
-### Como encontrei
+### How i find it
 
 Read through the funnel diagram (L1 → L2 → DFIR) and the room's explanation of each term to answer the two definition questions.
 
-### Respostas
+### Answer
 
 **What is the process of passing suspicious alerts to an L2 analyst for review?**
 ```
@@ -67,11 +67,11 @@ alert reporting
 
 ## Task 3 — Writing a Good Alert Report (Five Ws)
 
-### Objetivo
+### Objective
 
 Learn why L1 reporting matters and apply the Five Ws framework to write a report for a real phishing alert.
 
-### Conceitos
+### Concept
 
 Writing alert reports at L1 level serves three purposes:
 
@@ -89,7 +89,7 @@ A good report follows the **Five Ws**:
 - **Where** — device, IP, or website involved
 - **Why** — the reasoning behind the final verdict (arguably the most important W)
 
-### Como encontrei
+### How i find it
 
 On the [SOC dashboard](https://static-labs.tryhackme.cloud/apps/socl1-alertreporting/), located the alert describing the sensitive-document leak to identify the user, then opened the new phishing alert, read its sender field, and — after assigning it to myself and moving it to In Progress — wrote a Five-Ws-based comment in the Analyst Comment field.
 
@@ -98,7 +98,7 @@ On the [SOC dashboard](https://static-labs.tryhackme.cloud/apps/socl1-alertrepor
 ![Phishing alert details opened for investigation](images/screenshot-2026-07-20-132711.png)
 ![Analyst comment written using the Five Ws template](images/screenshot-2026-07-20-133546.png)
 
-### Respostas
+### Answer
 
 **Which user email leaked the sensitive document?**
 ```
@@ -119,11 +119,11 @@ THM{nice_attempt_faking_microsoft_support}
 
 ## Task 4 — Escalating Alerts to L2
 
-### Objetivo
+### Objective
 
 Learn when an alert should be escalated to L2, and practice the escalation flow on the dashboard.
 
-### Conceitos
+### Concept
 
 Escalate an alert to L2 when:
 
@@ -140,7 +140,7 @@ Mechanically, escalation is usually just **reassigning the alert to the on-shift
 3. If escalation is needed, assign the alert **to your L2** on shift.
 4. L2 gets notified and starts from your report.
 
-### Como encontrei
+### How i find it
 
 Checked the dashboard's assignee list to find the current L2 on shift, then escalated the phishing alert from Task 3 by setting an intermediate verdict and reassigning it. Repeated the same investigation → verdict → escalation flow for a second new alert (a reverse-shell alert on an Exchange server), documenting my findings before escalating.
 
@@ -149,7 +149,7 @@ Checked the dashboard's assignee list to find the current L2 on shift, then esca
 ![Escalation confirmation and flag](images/screenshot-2026-07-20-135133.png)
 ![Reverse shell alert details on the DMZ Exchange server](images/screenshot-2026-07-20-140434.png)
 
-### Respostas
+### Answer
 
 **Who is the current L2 you can escalate alerts to?**
 ```
@@ -180,11 +180,11 @@ THM{looks_like_webshell_via_old_exchange}
 
 ## Task 5 — Crisis Communication
 
-### Objetivo
+### Objective
 
 Know how to react in edge cases that aren't covered by a normal triage/escalation flow.
 
-### Conceitos
+### Concept
 
 Recommended responses for common crisis scenarios:
 
@@ -194,11 +194,11 @@ Recommended responses for common crisis scenarios:
 - **Realizing days later that an alert was misclassified** → contact L2 immediately; attackers can stay silent for weeks before causing impact.
 - **SIEM logs not parsed/searchable** → don't skip the alert; investigate what you can and report the tooling issue to L2 or a SOC engineer.
 
-### Como encontrei
+### How i find it
 
 Answered based on the room's guidance for each communication case.
 
-### Respostas
+### Answer
 
 **Should you first try to contact your manager in case of a critical threat? (Yea/Nay)**
 ```
